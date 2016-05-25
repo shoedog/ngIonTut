@@ -6,7 +6,7 @@
     .module('app')
     .config(configRoutes);
 
-  configRoutes.$inject = ['$urlRouterProvider'];
+  configRoutes.$inject = ['$urlRouteProvider'];
 
   function configRoutes($urlRouterProvider) {
     //fallback url

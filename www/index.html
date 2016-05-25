@@ -19,8 +19,8 @@
     <script src="cordova.js"></script>
 
     <!-- app module -->
-    <script src="app/module.js"></script>
-    <script src="app/route.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.route.js"></script>
     <script src="app/app.js"></script>
 
     <!-- widgets module -->
@@ -31,15 +31,14 @@
     <!-- home module -->
     <script src="app/home/home.module.js"></script>
     <script src="app/home/home.route.js"></script>
-    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/homeView.controller.js"></script>
 
   </head>
   <body ng-app="app">
 
     <ion-pane>
-      <div ui-view></div>
-      <ion-content has-subheader>
-      </ion-content>
+      <ion-nav-bar></ion-nav-bar>
+      <ion-nav-view></ion-nav-view>
     </ion-pane>
   </body>
 </html>

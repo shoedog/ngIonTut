@@ -6,37 +6,19 @@
     .module('app.widgets')
     .controller('TitleBarCtrl', TitleBarController);
 
-  TitleBarController.$inject = [ '$scope', '$state', '$ionicPlatform'];
+  TitleBarController.$inject = [ '$scope', '$state', '$ionicPlatform', $ionicNavBarDelegate];
 
-    function TitleBarController( $scope, $state, $ionicPlatform ) {
+    function TitleBarController( $scope, $state, $ionicPlatform, $ionicNavBarDelegate ) {
       var vm = this;
-      vm.navigateBack = navigateBack;
-      vm.hasReturnState = hasReturnState;
+      vm.showNavBar = showNavBar;
+      vm.showBackBtn = showBackBtn;
 
-      function activate() {
-        // For handling the Android system back button.
-        // See http://ionicframework.com/docs/api/service/$ionicPlatform/ for details
-        if(vm.returnState) {
-          var deregister = $ionicPlatform.registerBackButtonAction(vm.navigateBack, 100);
-          $scope.$on('$destroy', deregister);
-        }
+      function showNavBar(){
+        $ionicNavBarDelegate.showBar(vm.showNB);
       }
 
-      function navigateBack() {
-        if (vm.returnState) {
-          $state.go(vm.returnState);
-        }
-        else if (typeof vm.returnCallback === 'function') {
-          vm.returnCallback();
-        }
+      function showBackBtn(){
+        $ionicNavBarDelegate.showBackButton(vm.showBack);
       }
-
-      function hasReturnState() {
-        return vm.returnState || typeof vm.returnCallback === 'function';
-      }
-
-
-      activate();
-
     }
 })();
