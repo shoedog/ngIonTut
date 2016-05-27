@@ -1,2 +1,2 @@
 
-angular.module('app.home', ['ionic', 'ui.router', 'app.widgets']);
+angular.module('app.home', ['ionic', 'app.widgets']);

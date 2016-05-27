@@ -1,14 +1,15 @@
-<ion-view id="home">
-  <titlebar></titlebar>
-
-
-    <ion-content delegate-handle="homeView" >
+<ion-view>
+    <ion-content >
 
 
     <div class="row">
       <div class="col"></div>
+      <a ui-sref=".list">
       <button class="button button-bar button-balanced">Click Button</button>
+      </a>
     </div>
 
+
+      <div ui-view></div>
     </ion-content>
 </ion-view>

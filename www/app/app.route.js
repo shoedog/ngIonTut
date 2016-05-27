@@ -1,15 +1,37 @@
 
 (function() {
-  'use strict';
 
   angular
     .module('app')
-    .config(configRoutes);
+    .config(configureRoutes);
 
-  configRoutes.$inject = ['$urlRouteProvider'];
+  configureRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function configRoutes($urlRouterProvider) {
-    //fallback url
-    $urlRouterProvider.otherwise('/home');
+  function configureRoutes($stateProvider, $urlRouterProvider) {
+
+
+    $stateProvider
+      .state('home', {
+        url: '/',
+        views: {
+          '': {
+            templateUrl: 'app/home/home.html',
+            controller: 'HomeCtrl',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('home.list', {
+      url: '/list',
+      views: {
+        '': {
+          templateUrl: 'app/home/nestedlist.html',
+          controller: function($scope) {
+            $scope.dogs = ['Bernese', 'Husky', 'Poodle'];
+          }
+        }
+      }
+    });
+    $urlRouterProvider.otherwise('/');
   }
-});
+})();

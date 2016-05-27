@@ -3,13 +3,13 @@
 
   angular
     .module('app.home')
-    .controller('HomeViewCtrl', HomeViewController);
+    .controller('HomeCtrl', HomeViewController);
 
   HomeViewController.$inject = ['$scope', '$state', '$ionicPlatform'];
 
     function HomeViewController( $scope, $state, $ionicPlatform) {
       var vm = this
-      
+
 
     }
 })();

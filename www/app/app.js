@@ -2,14 +2,15 @@
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 (function() {
-  'use strict';
 
-  angular.module('app')
-    .run(initModule);
+  angular
+    .module('app')
+    .run(initializeModule)
+    .config(configureModule);
 
-  initModule.$inject = ['$timeout', '$ionicPlatform'];
+  initializeModule.$inject = ['$ionicPlatform'];
 
-  function initModule($timeout, $ionicPlatform){
+  function initializeModule($ionicPlatform){
     $ionicPlatform.ready(function() {
       if(window.cordova && window.cordova.plugins.Keyboard) {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -26,7 +27,11 @@
       }
     });
   }
-});
+
+  function configureModule(){
+    //any configs
+  }
+})();
 
 
 

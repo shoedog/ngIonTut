@@ -1,20 +1,23 @@
-(function () {
-  'use strict';
+(function() {
 
-  angular.module('app.home')
-    .config(homeRoutes);
+  angular
+    .module('app.home')
+    .config(configureRoutes);
 
-  homeRoutes.$inject = ['$stateProvider'];
+  configureRoutes.$inject = ['$stateProvider'];
 
-  function homeRoutes($stateProvider) {
+  function configureRoutes($stateProvider) {
+
+
     $stateProvider
-      .state('home', {
-        url: '/home',
+      .state('home.list', {
+        url: '/list',
         views: {
-          "": {
-            templateUrl: 'app/home/homeView.html',
-            controller: 'HomeViewCtrl',
-            controllerAs: 'vm'
+          '': {
+            templateUrl: 'app/home/nestedlist.html',
+            controller: function($scope) {
+              $scope.dogs = ['Bernese', 'Husky', 'Poodle'];
+            }
           }
         }
       });

@@ -6,19 +6,19 @@
     .module('app.widgets')
     .controller('TitleBarCtrl', TitleBarController);
 
-  TitleBarController.$inject = [ '$scope', '$state', '$ionicPlatform', $ionicNavBarDelegate];
+  TitleBarController.$inject = [ '$scope', '$state', '$ionicPlatform'];
 
-    function TitleBarController( $scope, $state, $ionicPlatform, $ionicNavBarDelegate ) {
+    function TitleBarController( $scope, $state, $ionicPlatform  ) {
       var vm = this;
       vm.showNavBar = showNavBar;
       vm.showBackBtn = showBackBtn;
 
       function showNavBar(){
-        $ionicNavBarDelegate.showBar(vm.showNB);
+        //showBar(vm.showNB);
       }
 
       function showBackBtn(){
-        $ionicNavBarDelegate.showBackButton(vm.showBack);
+        //showBackButton(vm.showBack);
       }
     }
 })();
